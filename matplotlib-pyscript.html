@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        - matplotlib
+    </py-env>
+</head>
+<body>
+    <h1>Matplotlib</h1>
+    <py-script> print("My Lineplot")</py-script>
+    <div id="lineplot"></div>
+    <py-script output="lineplot">
+# Python Code Goes Here ...
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+year_1 = [2016, 2017, 2018, 2019, 2020, 2021]
+population_1 = [42, 43, 45, 47, 48, 50]
+
+year_2 = [2016, 2017, 2018, 2019, 2020, 2021]
+population_2 = [43, 43, 44, 44, 45, 45]
+
+plt.plot(year_1, population_1, marker='o', linestyle='--', color='g', label='Country 1')
+plt.plot(year_2, population_2,  marker='d', linestyle='-', color='r', label='Country 2')
+
+plt.xlabel('Year')
+plt.ylabel('Population (M)')
+plt.title('Year vs Population')
+plt.legend(loc='lower right')
+
+fig
+    </py-script>
+</body>
+</html>
